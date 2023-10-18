@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <!-- Cardview till Bild -->
+    android:layout_height="match_parent">
+    <!-- Cardview till bild -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardview"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/cardview_height"
+        android:layout_height="@dimen/height_cardview_lv"
+        android:layout_marginTop="@dimen/margins_et"
+        android:layout_marginBottom="@dimen/margins_et"
         android:backgroundTint="@color/black"
         android:padding="@dimen/padding_cv"
         app:cardCornerRadius="@dimen/corner_radius_main"
@@ -18,87 +17,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-        <!-- Titel -->
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="@dimen/witdth_et"
-            android:layout_height="@dimen/height_et"
-            android:layout_gravity="center_vertical"
-            android:background="@color/black"
-            android:gravity="center"
-            android:text="@string/title_string"
-            android:textColor="@color/white"
-            android:textSize="@dimen/title_ts"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardview"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.206" />
-
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@color/black" />
     </androidx.cardview.widget.CardView>
 
 
-
-    <!-- Inmatningsfält -->
-
-
-
-    <EditText
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/et_height_new"
-        android:layout_marginStart="@dimen/margins_et"
-        android:layout_marginEnd="@dimen/margins_et"
-        android:hint="@string/string_et1"
+    <!-- Titel -->
+    <TextView
+        android:id="@+id/tv_titel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_tv"
+        android:gravity="center"
+        android:text="@string/tv_string_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/title_ts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintVertical_bias="0.068" />
 
-    <EditText
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginStart="@dimen/margins_et"
-        android:layout_marginTop="@dimen/margins_et"
-        android:layout_marginEnd="@dimen/margins_et"
-        android:gravity="bottom"
-        android:hint="@string/string_et2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.0" />
-    <!-- Knappar -->
     <Button
-        android:id="@+id/save"
+        android:id="@+id/newNote"
         android:layout_width="@dimen/btn_width"
         android:layout_height="@dimen/btn_height"
         android:layout_marginTop="@dimen/margins_et"
         android:backgroundTint="@color/black"
-        android:text="@string/btn_string"
-        android:textSize="@dimen/btn_textsize"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
-
-    <Button
-        android:id="@+id/yournotes"
-        android:layout_width="@dimen/btn_width"
-        android:layout_height="@dimen/btn_height"
-        android:layout_marginTop="@dimen/margins_et"
-        android:backgroundTint="@color/black"
-        android:text="@string/btn2_string"
+        android:text="Ny anteckning"
         android:textSize="@dimen/btn_textsize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,6 +54,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
+    <!-- Listview till anställda -->
+    <ListView
+        android:id="@+id/lv_notes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margins_et"
+        app:layout_constraintBottom_toBottomOf="@id/guidline_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titel"
+        app:layout_constraintVertical_bias="0" />
+
+
+    <!-- GuideLine till ListViewn -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

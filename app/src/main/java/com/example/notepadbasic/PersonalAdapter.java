@@ -13,21 +13,23 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
-//Controller för views och att hämta in employees och skickar in i listviewn
 
 public class PersonalAdapter extends ArrayAdapter<Notes> {
+
     public PersonalAdapter(Context context, ArrayList<Notes> note) {
-        super(context, 0, notes);}
+        super(context, 0, notes);
+    }
+
 
     @NonNull
-    public View getView (int posistion, View convertView, @NonNull ViewGroup parent) {
+    public View getView(int posistion, View convertView, @NonNull ViewGroup parent) {
 
 
         View listaPersonalView = convertView;
 
         //Inflatar min nya adapter i Listviewn
 
-        if(listaPersonalView == null){
+        if (listaPersonalView == null) {
             listaPersonalView = LayoutInflater.from(getContext()).inflate(R.layout.personal_adapter, parent, false);
         }
         // Hämtar den aktuella anställda från listan
@@ -44,6 +46,5 @@ public class PersonalAdapter extends ArrayAdapter<Notes> {
 
 
     }
-
-
 }
+

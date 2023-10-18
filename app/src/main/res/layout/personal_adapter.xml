@@ -9,8 +9,6 @@
     android:layout_margin="@dimen/margins_et"
     app:cardCornerRadius="@dimen/corner_radius">
 
-
-
     <!-- Xml till Adaptern -->
 
     <TextView
@@ -22,8 +20,7 @@
         android:padding="@dimen/padding_cv"
         android:textColor="@color/white"
         android:textSize="@dimen/tv_textsize_adapter"
-        android:textStyle="italic"
-        tools:text="26" />
+        android:textStyle="italic" />
 
 
 
