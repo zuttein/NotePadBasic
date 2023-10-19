@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
 //Model
 
 public class DataManager {
@@ -31,6 +32,31 @@ public class DataManager {
         editor.apply();
 
     }
+
+    public boolean deleteNoteByTitle(String title) {
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        //Hämtar alla värden i sharepreference
+        Map<String, ?> allEntries = sharedPreferences.getAll();
+
+        //Loop som går igenom alla notes i sharepreference
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            String entryValue = entry.getValue().toString();
+            //Antar att strängen är uppdelat i två, en pipeline som delar titel och text
+            String[] noteParts = entryValue.split("\\|");
+
+            if (noteParts.length > 0 && noteParts[0].equals(title)) {
+                editor.remove(entry.getKey());
+                boolean isRemoved = editor.commit();
+                return isRemoved;
+            }
+        }
+
+        // Ingen matchande anteckning hittades.
+        return false;
+    }
+
+
 
 
 

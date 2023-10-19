@@ -3,7 +3,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.List;
 
 
 //TODO
-//Fixa logiken för att deletea en note
 //Göra så att jag kan hoppa in och redigera notes
 
 

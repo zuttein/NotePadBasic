@@ -44,7 +44,6 @@ public class NewNote extends AppCompatActivity {
                     dataManager.saveNote(title, text);
                     Toast.makeText(NewNote.this, "Saved", Toast.LENGTH_SHORT).show();
 
-                    // Pass the updated notes list back to MainActivity
                     Intent resultIntent = new Intent();
                     resultIntent.putStringArrayListExtra("updatedNotes", (ArrayList<String>) dataManager.getNotes());
                     setResult(RESULT_OK, resultIntent);
