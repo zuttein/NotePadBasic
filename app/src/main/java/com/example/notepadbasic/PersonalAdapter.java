@@ -1,6 +1,7 @@
 package com.example.notepadbasic;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,12 @@ import java.util.List;
 
 public class PersonalAdapter extends ArrayAdapter<String> {
     private DataManager dataManager;
+    private Context context;
 
     public PersonalAdapter(Context context, List<String> notes, DataManager dataManager) {
         super(context, 0, notes);
         this.dataManager = dataManager;
+        this.context = context;
     }
 
     @NonNull
@@ -51,6 +54,20 @@ public class PersonalAdapter extends ArrayAdapter<String> {
                 }
 
                 return true;
+            }
+        });
+
+
+        listaPersonalView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hämta den aktuella anteckningen.
+                String currentNote = getItem(position);
+
+                // Öppna redigeringsaktiviteten (NewNote) och skicka med anteckningen.
+                Intent editIntent = new Intent(context, NewNote.class);
+                editIntent.putExtra("note_data", currentNote);
+                context.startActivity(editIntent);
             }
         });
 

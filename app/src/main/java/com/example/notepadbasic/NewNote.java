@@ -17,6 +17,7 @@ public class NewNote extends AppCompatActivity {
     Button savebtn, cancelbtn;
     SharedPreferences sharedPreferences;
     DataManager dataManager;
+    String originalNoteData; // Håll reda på den ursprungliga anteckningen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,18 @@ public class NewNote extends AppCompatActivity {
         cancelbtn = findViewById(R.id.cancel);
 
         dataManager = new DataManager(this);
-
         sharedPreferences = getSharedPreferences("MyNotes", MODE_PRIVATE);
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("note_data")) {
+            originalNoteData = intent.getStringExtra("note_data");
+            String[] noteParts = originalNoteData.split("\\|");
+
+            if (noteParts.length == 2) {
+                titleInput.setText(noteParts[0]);
+                textInput.setText(noteParts[1]);
+            }
+        }
 
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +52,11 @@ public class NewNote extends AppCompatActivity {
                 if (title.isEmpty() || text.isEmpty()) {
                     Toast.makeText(NewNote.this, R.string.toast_wrong_input, Toast.LENGTH_SHORT).show();
                 } else {
+                    if (originalNoteData != null) {
+                        // Uppdatera den befintliga anteckningen istället för att skapa en ny
+                        dataManager.deleteNoteByTitle(title);
+                    }
+
                     dataManager.saveNote(title, text);
                     Toast.makeText(NewNote.this, "Saved", Toast.LENGTH_SHORT).show();
 
@@ -58,9 +74,5 @@ public class NewNote extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
-
     }
 }
