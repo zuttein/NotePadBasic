@@ -44,8 +44,6 @@
 
     <!-- Inmatningsfält -->
 
-
-
     <EditText
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -91,6 +89,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
 
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginTop="@dimen/margins_et"
+        android:backgroundTint="@color/black"
+        android:text="Avbryt"
+        android:textSize="@dimen/btn_textsize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

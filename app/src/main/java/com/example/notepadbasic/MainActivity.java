@@ -1,61 +1,71 @@
 package com.example.notepadbasic;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
+import java.util.List;
+
+//Controller
+//Viewsen består av xml filer och resources
+
+
+
+
+//TODO
+//Fixa logiken för att deletea en note
+//Göra så att jag kan hoppa in och redigera notes
+
 
 public class MainActivity extends AppCompatActivity {
 
     ListView notesList;
+    Button notesbtn;
+    PersonalAdapter adapter;
+    DataManager dataManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-        //Sätter id på samtliga element
+
         notesList = findViewById(R.id.lv_notes);
-        Button notesbtn = findViewById(R.id.newNote);
+        notesbtn = findViewById(R.id.newNote);
+        dataManager = new DataManager(this);
+        List<String> notes = dataManager.getNotes();
 
-
-
-
-
-        // Skapar en anpassad adapter för att visa listan över anställda
-        PersonalAdapter adapter = new PersonalAdapter(this, DataManager.notes);
-
-        adapter.notifyDataSetChanged();
-
-        // Kopplar adaptern till listview för att visa anställda i lista
+        adapter = new PersonalAdapter(this, notes, dataManager);
         notesList.setAdapter(adapter);
+
+
+
 
         notesbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 Intent intent = new Intent(MainActivity.this, NewNote.class);
                 startActivity(intent);
-
-
-
-
             }
         });
 
 
 
 
-
-
-
-
-
-
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Uppdatera listan av anteckningar här när jag återgår till main
+        List<String> notes = dataManager.getNotes();
+        adapter.clear();
+        adapter.addAll(notes);
+        adapter.notifyDataSetChanged();
+    }
+
+
 }
+
