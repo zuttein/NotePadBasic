@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import java.util.List;
 
 public class PersonalAdapter extends ArrayAdapter<String> {
-    private DataManager dataManager;
-    private Context context;
+    DataManager dataManager;
+    Context context;
 
     public PersonalAdapter(Context context, List<String> notes, DataManager dataManager) {
         super(context, 0, notes);
@@ -72,7 +72,9 @@ public class PersonalAdapter extends ArrayAdapter<String> {
         });
 
         return listaPersonalView;
+
     }
+
 }
 
 

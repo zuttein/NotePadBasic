@@ -33,6 +33,7 @@ public class NewNote extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MyNotes", MODE_PRIVATE);
 
         Intent intent = getIntent();
+
         if (intent.hasExtra("note_data")) {
             originalNoteData = intent.getStringExtra("note_data");
             String[] noteParts = originalNoteData.split("\\|");
@@ -46,18 +47,27 @@ public class NewNote extends AppCompatActivity {
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String title = titleInput.getText().toString();
+                String Title = titleInput.getText().toString();
                 String text = textInput.getText().toString();
 
-                if (title.isEmpty() || text.isEmpty()) {
+                if (Title.isEmpty() || text.isEmpty()) {
                     Toast.makeText(NewNote.this, R.string.toast_wrong_input, Toast.LENGTH_SHORT).show();
                 } else {
                     if (originalNoteData != null) {
-                        // Uppdatera den befintliga anteckningen istället för att skapa en ny
-                        dataManager.deleteNoteByTitle(title);
+                        // Hämta den gamla titeln och texten
+                        String[] noteParts = originalNoteData.split("\\|");
+                        String oldTitle = noteParts[0];
+
+                        // Ta bort den befintliga anteckningen med den gamla titeln
+                        dataManager.deleteNoteByTitle(oldTitle);
+
+                        // Spara den befintliga anteckningen med den nya titeln och texten
+                        dataManager.saveNote(Title, text);
+                    } else {
+                        // Om det inte fanns någon ursprunglig data, skapa en ny anteckning
+                        dataManager.saveNote(Title, text);
                     }
 
-                    dataManager.saveNote(title, text);
                     Toast.makeText(NewNote.this, "Saved", Toast.LENGTH_SHORT).show();
 
                     Intent resultIntent = new Intent();
@@ -67,6 +77,7 @@ public class NewNote extends AppCompatActivity {
                 }
             }
         });
+
 
         cancelbtn.setOnClickListener(new View.OnClickListener() {
             @Override
