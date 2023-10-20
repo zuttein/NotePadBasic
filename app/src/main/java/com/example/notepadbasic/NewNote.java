@@ -17,7 +17,7 @@ public class NewNote extends AppCompatActivity {
     Button savebtn, cancelbtn;
     SharedPreferences sharedPreferences;
     DataManager dataManager;
-    String originalNoteData; // Håll reda på den ursprungliga anteckningen
+    String originalNoteData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -56,23 +56,4 @@ public class DataManager {
         return false;
     }
 
-
-    public List<String> getAllNotes() {
-        List<String> notes = new ArrayList<>();
-
-        Map<String, ?> allEntries = sharedPreferences.getAll();
-
-        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-            String noteData = entry.getValue().toString();
-            notes.add(noteData);
-        }
-
-        return notes;
-    }
-
-
-
-
-
-
 }

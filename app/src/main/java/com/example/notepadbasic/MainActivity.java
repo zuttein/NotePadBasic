@@ -10,13 +10,6 @@ import java.util.List;
 //Controller
 //Viewsen består av xml filer och resources
 
-
-
-
-//TODO
-//Göra så att jag kan hoppa in och redigera notes
-
-
 public class MainActivity extends AppCompatActivity {
 
     ListView notesList;
@@ -48,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
 
 
     }

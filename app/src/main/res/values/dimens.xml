@@ -13,7 +13,7 @@
     <dimen name="tv_textsize_adapter">20sp</dimen>
     <dimen name="margin_adapter">10dp</dimen>
     <dimen name="corner_radius_main">80dp</dimen>
-    <dimen name="height_cardview_lv">80dp</dimen>
+    <dimen name="height_cardview_lv">100dp</dimen>
     <dimen name="cardview_height">200dp</dimen>
     <dimen name="et_height_new">50dp</dimen>
     <dimen name="image_witdh">200dp</dimen>
