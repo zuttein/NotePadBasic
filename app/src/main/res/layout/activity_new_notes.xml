@@ -60,7 +60,7 @@
         android:layout_marginEnd="@dimen/margins_et_newnotes"
         android:gravity="bottom"
         android:hint="@string/et2_newnotes"
-        android:inputType="text"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
