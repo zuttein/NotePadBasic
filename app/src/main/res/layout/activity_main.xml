@@ -40,7 +40,7 @@
         android:layout_width="@dimen/btn_width"
         android:layout_height="@dimen/btn_height"
         android:layout_marginTop="@dimen/margins_et"
-        android:backgroundTint="@color/button_colour"
+        android:backgroundTint="@color/yellow"
         android:text="Ny anteckning"
         android:textSize="@dimen/btn_textsize"
         android:textColor="@color/black"

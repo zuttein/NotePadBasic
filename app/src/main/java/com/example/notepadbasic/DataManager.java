@@ -1,6 +1,8 @@
 package com.example.notepadbasic;
+
 import android.content.Context;
 import android.content.SharedPreferences;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +19,11 @@ public class DataManager {
     }
 
     public List<String> getNotes() {
+        // Skapar en tom lista för att lagra anteckningarna
         List<String> notes = new ArrayList<>();
+        // Hämta alla anteckningar från SharedPreferences
         Map<String, ?> allEntries = sharedPreferences.getAll();
+        // Loopa igenom alla poster i SharedPreferences och lägg till varje anteckning i listan
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             notes.add(entry.getValue().toString());
         }
@@ -26,8 +31,13 @@ public class DataManager {
     }
 
     public void saveNote(String title, String text) {
+
+        // Skapa en redigerare för att ändra SharedPreferences-data
         SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        // Hämta ett individullt namn för varje anteckning
         long timestamp = System.currentTimeMillis();
+        // Spara den nya anteckningen med det namnet som nyckel och titel + text som värde
         editor.putString(String.valueOf(timestamp), title + "|" + text);
         editor.apply();
 
@@ -52,10 +62,8 @@ public class DataManager {
             }
         }
 
-        // Ingen matchande anteckning hittades.
         return false;
     }
-
 
 
 }

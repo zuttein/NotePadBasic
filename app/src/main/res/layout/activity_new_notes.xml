@@ -19,7 +19,6 @@
 
     </View>
 
-
     <!-- Titel -->
 
 
@@ -75,7 +74,7 @@
         android:layout_width="@dimen/btn_width"
         android:layout_height="@dimen/btn_height"
         android:layout_marginTop="@dimen/margins_et"
-        android:backgroundTint="@color/button_colour"
+        android:backgroundTint="@color/yellow"
         android:text="@string/btn_string"
         android:textSize="@dimen/btn_textsize"
         android:textColor="@color/black"
@@ -91,7 +90,7 @@
         android:layout_width="@dimen/btn_width"
         android:layout_height="@dimen/btn_height"
         android:layout_marginTop="@dimen/margins_et"
-        android:backgroundTint="@color/button_colour"
+        android:backgroundTint="@color/yellow"
         android:text="Avbryt"
         android:textColor="@color/black"
         android:textSize="@dimen/btn_textsize"

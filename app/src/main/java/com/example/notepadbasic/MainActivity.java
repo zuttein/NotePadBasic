@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         notesList = findViewById(R.id.lv_notes);
         notesbtn = findViewById(R.id.newNote);
         dataManager = new DataManager(this);
+
+        // Hämtar en lista med befintliga anteckningar från DataManager
         List<String> notes = dataManager.getNotes();
 
         adapter = new PersonalAdapter(this, notes, dataManager);
@@ -35,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        //Startar Newnote aktiviteten
         notesbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NewNote.class);
+                Intent intent = new Intent(MainActivity.this, NewNoteActivity.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        // Uppdatera listan av anteckningar här när jag återgår till main
+        // Uppdatera listan av anteckningar när jag återgår till main
         List<String> notes = dataManager.getNotes();
         adapter.clear();
         adapter.addAll(notes);

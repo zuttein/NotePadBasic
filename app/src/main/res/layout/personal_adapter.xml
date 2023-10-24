@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:backgroundTint="@color/black"
+    android:backgroundTint="@color/yellow"
     android:padding="@dimen/padding_cv"
     android:layout_margin="@dimen/margins_et"
     app:cardCornerRadius="@dimen/corner_radius">
@@ -18,7 +18,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/margin_adapter"
         android:padding="@dimen/padding_cv"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="@dimen/tv_textsize_adapter"
         android:textStyle="italic" />
 

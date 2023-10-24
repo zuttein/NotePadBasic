@@ -13,7 +13,7 @@
         android:theme="@style/Theme.NotePadBasic"
         tools:targetApi="31">
         <activity
-            android:name=".NewNote"
+            android:name=".NewNoteActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
