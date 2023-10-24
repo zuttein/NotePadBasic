@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">NotePadBasic</string>
-    <string name="title_string">Notepad</string>
-    <string name="string_et1">Titel</string>
-    <string name="string_et2">Brödtext</string>
-    <string name="btn_string">Spara anteckning</string>
-    <string name="btn2_string">Till mina anteckningar</string>
+    <string name="tv_title_newnotes">Notepad</string>
+    <string name="et1_newnotes">Titel</string>
+    <string name="et2_newnotes">Brödtext</string>
+    <string name="btn_newnotes">Spara anteckning</string>
     <string name="toast_wrong_input">Fyll i alla fält</string>
     <string name="toast_registrered">Anteckning tillagd</string>
-    <string name="tv_string_title">Mina Anteckningar</string>
+    <string name="tv_title_main">Mina Anteckningar</string>
     <string name="btn_back_string">Tillbaka</string>
+    <string name="btn_text_main">Ny anteckning</string>
+    <string name="btn2_newnotes">Avbryt</string>
 </resources>

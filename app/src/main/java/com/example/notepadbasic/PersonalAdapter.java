@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
+
+//Controller
+
 public class PersonalAdapter extends ArrayAdapter<String> {
     DataManager dataManager;
     Context context;
@@ -76,7 +79,10 @@ public class PersonalAdapter extends ArrayAdapter<String> {
 
     }
 
+
+
 }
+
 
 
 

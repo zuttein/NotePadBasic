@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-
+//Controller
 public class NewNoteActivity extends AppCompatActivity {
     EditText titleInput;
     EditText textInput;
@@ -33,7 +33,7 @@ public class NewNoteActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MyNotes", MODE_PRIVATE);
 
         Intent intent = getIntent();
-        //Hanterar om intentet har content redan, dvs redigering
+        //Hanterar om aktiviteten har content redan, dvs redigering
         if (intent.hasExtra("note_data")) {
             originalNoteData = intent.getStringExtra("note_data");
             String[] noteParts = originalNoteData.split("\\|");

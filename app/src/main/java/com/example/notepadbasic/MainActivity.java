@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     PersonalAdapter adapter;
     DataManager dataManager;
 
-    //Om man redigerar titeln så skapas en ny note
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
