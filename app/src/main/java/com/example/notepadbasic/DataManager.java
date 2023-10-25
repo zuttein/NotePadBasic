@@ -23,10 +23,11 @@ public class DataManager {
         List<String> notes = new ArrayList<>();
         // Hämta alla anteckningar från SharedPreferences
         Map<String, ?> allEntries = sharedPreferences.getAll();
-        // Loopa igenom alla poster i SharedPreferences och lägg till varje anteckning i listan
+
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             notes.add(entry.getValue().toString());
         }
+        //Returnerar anteckningarna som en lista
         return notes;
     }
 
@@ -42,14 +43,12 @@ public class DataManager {
         editor.apply();
 
     }
-
+    //Tar bort en anteckning med en given titel från SharedPreferences.
     public boolean deleteNoteByTitle(String title) {
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        //Hämtar alla värden i sharepreference
         Map<String, ?> allEntries = sharedPreferences.getAll();
 
-        //Loop som går igenom alla notes i sharepreference
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             String entryValue = entry.getValue().toString();
             //Antar att strängen är uppdelat i två, en pipeline som delar titel och text

@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import java.util.List;
 
+//MVC
+
 //Controller
 //Viewsen består av xml filer och resources
 
